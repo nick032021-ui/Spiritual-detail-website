@@ -378,7 +378,6 @@ footer{border-top:1px solid var(--gold-line);padding:44px 0 34px;text-align:cent
     <div class="sec-head">
       <h2>Book Your <span class="goldtext">Detail</span></h2>
       <p>Three quick steps. Only open dates and times are shown.</p>
-      <p class="sec-note" id="nextAvail">Checking next availability&hellip;</p>
     </div>
 
     <div class="book-shell">
@@ -852,21 +851,6 @@ function dayStatus(y,m,d){
 }
 
 
-function renderNextAvail(){
-  const el=document.getElementById('nextAvail');
-  if(!el) return;
-  const t=new Date();
-  for(let i=0;i<60;i++){
-    const d=new Date(t.getFullYear(),t.getMonth(),t.getDate()+i);
-    if(dayStatus(d.getFullYear(),d.getMonth(),d.getDate())!=='open') continue;
-    const k=key(d.getFullYear(),d.getMonth(),d.getDate());
-    const open=slotsFor(k).filter(s=>!s.taken&&!s.blocked);
-    if(!open.length) continue;
-    el.innerHTML=`Next available: <b>${fmt(k)} at ${open[0].time}</b>${open.length>1?` <span style="opacity:.7">(${open.length} times open)</span>`:''} &mdash; pick a package below to grab it.`;
-    return;
-  }
-  el.textContent='No open times in the next 60 days \u2014 call us and we will fit you in.';
-}
 
 /* ================= pricing ================= */
 function calcTotal(){
@@ -981,7 +965,6 @@ function renderCal(){
     html+=`<button class="${cls}" ${click} ${(!click)?'disabled':''}>${d}</button>`;
   }
   grid.innerHTML=html;
-  renderNextAvail();
 }
 function moveMonth(dir){
   viewMonth+=dir;
