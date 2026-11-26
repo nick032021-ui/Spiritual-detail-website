@@ -104,6 +104,16 @@ section{padding:76px 0}
 .surcharge{margin-top:16px;background:linear-gradient(180deg,rgba(240,180,41,.16),rgba(240,180,41,.07));border:1px solid var(--gold-line);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:7px;border-radius:8px}
 .card .btn{margin-top:16px;text-align:center}
 
+/* compare table */
+.compare{margin-top:30px}
+.compare h3{text-align:center;font-size:19px;margin-bottom:12px}
+.compare table{width:100%;max-width:620px;margin:0 auto;border-collapse:collapse;font-size:14px}
+.compare th,.compare td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:center}
+.compare td:first-child,.compare th:first-child{text-align:left;color:var(--fog)}
+.compare th{color:var(--gold);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.compare td{color:var(--gold);font-weight:600}
+.compare td:first-child{font-weight:400}
+
 /* add-ons */
 .addons{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .addon{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center}
@@ -292,6 +302,21 @@ footer{border-top:1px solid var(--gold-line);padding:44px 0 34px;text-align:cent
       <p>Every package is done by hand, with premium products and prayer-level patience.</p>
     </div>
     <div class="services" id="svcCards"></div>
+    <div class="compare">
+      <h3>Compare packages</h3>
+      <table>
+        <tr><th></th><th>Express<br>$55</th><th>Essential<br>$100</th><th>Complete<br>$320</th></tr>
+        <tr><td>Hand wash &amp; dry</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Windows, inside &amp; out</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Tires dressed &amp; jambs wiped</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Full interior vacuum &amp; detail</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Foam wash, bug &amp; tar removal</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Clay bar decontamination</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td>Machine polish — swirls &amp; haze</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td>Ceramic wax protection</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td>Time</td><td>~45 min</td><td>~1.5 hrs</td><td>~4 hrs</td></tr>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -473,50 +498,28 @@ footer{border-top:1px solid var(--gold-line);padding:44px 0 34px;text-align:cent
 /* ================= config ================= */
 const SERVICES=[
   {id:'express',name:'Express Wash',price:55,sur:10,dur:'~45 min',
-   blurb:'A fresh, clean finish to keep your vehicle looking its best.',
+   blurb:"“It’s kept up — it just needs a refresh.”",
    feats:[
-     'Hand wash and exterior rinse',
-     'Thorough hand drying to help prevent water spots',
-     'Exterior windows cleaned for a clear, streak-free finish',
-     'Interior windows cleaned for improved visibility',
-     'Tires dressed for a clean, finished appearance',
-     'All door jambs wiped clean',
-     'Final walk-around to check the overall finish']},
-  {id:'essential',name:'Essential Detail',price:100,sur:10,dur:'~1.5 hrs',
-   blurb:'A complete interior and exterior detail to refresh your vehicle and keep it looking its best.',
+     'Hand wash & dry',
+     'Windows cleaned, inside & out',
+     'Tires dressed, door jambs wiped',
+     'Final walk-around']},
+  {id:'essential',name:'Essential Detail',price:100,sur:10,dur:'~1.5 hrs',popular:true,
+   blurb:"“It hasn’t been detailed in a while.”",
    feats:[
-     'Hand wash with a rich foam bath',
-     'Bug and tar removal from applicable exterior surfaces',
-     'Wheels and tires thoroughly cleaned, including tire dressing',
-     'Interior and exterior windows cleaned',
-     'Full interior vacuum, including seats, carpets, floor mats, and trunk',
-     'Dashboard, center console, door panels, and cup holders cleaned',
-     'Interior surfaces dusted and refreshed',
-     'All door jambs cleaned',
-     'Air freshener of your choice',
-     'Final inspection and finishing touches']},
-  {id:'complete',name:'Complete Interior & Exterior Detail',price:320,sur:20,dur:'~4 hrs',popular:true,includes:['ceramic','claybar'],
-   blurb:'A comprehensive interior and exterior detail delivering a showroom-worthy finish, enhanced paint gloss, and a beautifully refreshed interior.',
-   groups:[
-     {title:'Exterior Services',items:[
-       'Thorough hand wash with a rich foam bath',
-       'Bug and tar removal from applicable exterior surfaces',
-       'Detailed wheel and tire cleaning, including brake dust removal',
-       'Clay bar treatment to remove embedded surface contaminants',
-       'One-step machine polishing to enhance paint gloss and help reduce the appearance of minor swirl marks',
-       'Ceramic wax application for enhanced shine and added paint protection',
-       'Exterior windows cleaned for a clear, streak-free finish',
-       'Tire dressing for a rich, finished appearance']},
-     {title:'Interior Services',items:[
-       'Thorough vacuuming of seats, carpets, floor mats, and trunk',
-       'Detailed cleaning of dashboard, center console, door panels, and cup holders',
-       'Leather surfaces cleaned and conditioned, where applicable',
-       'Dashboard and interior trim treated with ceramic protectant to help protect against UV exposure and reduce the risk of fading and drying',
-       'Interior surfaces thoroughly cleaned and refreshed',
-       'Interior windows and mirrors cleaned for a clear, streak-free finish',
-       'Air freshener of your choice',
-       'Final inspection and finishing touches throughout']}],
-   feats:[]},
+     'Everything in Express, plus:',
+     'Foam hand wash, bug & tar removal',
+     'Full interior vacuum — seats, carpets & trunk',
+     'Dash, console & cup holders detailed',
+     'Your air freshener of choice']},
+  {id:'complete',name:'Complete Interior & Exterior Detail',price:320,sur:20,dur:'~4 hrs',includes:['ceramic','claybar'],
+   blurb:"“The paint looks dull — I want it back.”",
+   feats:[
+     'Everything in Essential, plus:',
+     'Clay bar — paint feels glass-smooth',
+     'Machine polish — lifts swirls & haze',
+     'Ceramic wax — gloss & protection for months',
+     'Leather cleaned & conditioned']},
 ];
 const ADDONS=[
   {id:'ceramic',name:'Ceramic Wax',price:25,desc:'Ceramic-infused wax sealant hand applied for a deep gloss and months of hydrophobic paint protection.'},
