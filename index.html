@@ -97,6 +97,7 @@ section{padding:76px 0}
 .card ul{list-style:none;color:var(--fog);font-size:14px;display:grid;gap:9px}
 .card .feat-wrap{flex:1;display:flex;flex-direction:column;gap:4px}
 .card .blurb{color:var(--fog);font-size:13.5px;line-height:1.5;margin:-2px 0 14px}
+.card .dur{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
 .card .grp{font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:10px 0 2px}
 .card .feat-wrap > .grp:first-child{margin-top:0}
 .card ul li{display:flex;gap:9px}
@@ -838,6 +839,7 @@ function renderServices(){
         <div class="price goldtext">$${s.price}</div>
       </div>
       ${s.blurb?`<p class="blurb">${s.blurb}</p>`:''}
+      ${s.dur?`<div class="dur">⏱ ${s.dur}</div>`:''}
       <div class="feat-wrap">${s.groups
         ? s.groups.map(g=>`<div class="grp">${g.title}</div><ul>${g.items.map(f=>`<li>${f}</li>`).join('')}</ul>`).join('')
         : `<ul>${s.feats.map(f=>`<li>${f}</li>`).join('')}</ul>`}</div>
