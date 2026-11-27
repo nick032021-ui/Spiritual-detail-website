@@ -88,11 +88,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,9,8,.9);backdrop-filt
 .band-quote{font-family:'Anton',sans-serif;font-size:clamp(26px,4.5vw,44px);line-height:1.1;color:var(--white);letter-spacing:.02em}
 .band-quote em{font-family:'Yellowtail',cursive;color:var(--gold);font-style:normal}
 .band-sub{color:var(--gold);font-size:13px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-top:12px}
-.testimonial{text-align:center;padding:72px 0 16px;max-width:780px;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:980px;margin:0 auto;padding:72px 0 16px}
+.testimonial{text-align:center}
 .testi-stars{color:var(--gold);letter-spacing:.4em;font-size:17px}
-.testi-quote{font-size:clamp(21px,3.2vw,30px);line-height:1.4;font-style:italic;color:var(--white);margin:20px 0 16px}
+.testi-quote{font-size:clamp(19px,2.4vw,25px);line-height:1.4;font-style:italic;color:var(--white);margin:20px 0 16px}
 .testi-who{color:var(--gold);font-weight:700;letter-spacing:.06em;font-size:14px}
 .testi-who span{color:var(--fog);font-weight:400}
+@media(max-width:640px){.testi-grid{grid-template-columns:1fr;gap:56px}}
 
 /* ---------- sections ---------- */
 section{padding:76px 0}
@@ -370,10 +372,17 @@ footer{border-top:1px solid var(--gold-line);padding:44px 0 34px;text-align:cent
 
 <section id="testimonial" style="padding-top:0">
   <div class="wrap">
-    <div class="testimonial">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">&ldquo;Preciate it bro! Lookin like a new truck again 🙏😎&rdquo;</p>
-      <div class="testi-who">&mdash; @hoodshogun <span>&middot; Black GMC truck</span></div>
+    <div class="testi-grid">
+      <div class="testimonial">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">&ldquo;Preciate it bro! Lookin like a new truck again 🙏😎&rdquo;</p>
+        <div class="testi-who">&mdash; @hoodshogun <span>&middot; Black GMC truck</span></div>
+      </div>
+      <div class="testimonial">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">&ldquo;Hey, that's my truck!!! Thanks again, brother!! Completely exceeded every expectation i had!!! The truck looks amazing!!!&rdquo;</p>
+        <div class="testi-who">&mdash; @szeigler86 <span>&middot; Truck detail</span></div>
+      </div>
     </div>
   </div>
 </section>
